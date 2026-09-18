@@ -1,0 +1,2167 @@
+{
+  "version": "2.14",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "Frame",
+      "clip": true,
+      "width": 800,
+      "height": 600,
+      "fill": "#FFFFFF",
+      "layout": "none"
+    },
+    {
+      "type": "frame",
+      "id": "tAaDl",
+      "x": 920,
+      "y": 0,
+      "name": "RUMBO · Inicio",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "$rumbo-blanco",
+      "layout": "vertical",
+      "gap": 32,
+      "padding": [
+        36,
+        64
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "Uib1M",
+          "name": "Encabezado",
+          "width": "fill_container",
+          "height": 52,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "e8yUYA",
+              "name": "Marca RUMBO",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "T9bfu",
+                  "name": "Símbolo de marca",
+                  "width": 38,
+                  "height": 38,
+                  "fill": "$rumbo-petroleo",
+                  "cornerRadius": 12,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uMZlw",
+                      "name": "Inicial R",
+                      "fill": "#FFFFFF",
+                      "content": "R",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 22,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "h2rhl",
+                  "name": "Logotipo",
+                  "fill": "$rumbo-petroleo",
+                  "content": "RUMBO",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "dDUv7",
+              "name": "Etiqueta de práctica",
+              "fill": "$rumbo-muted",
+              "content": "PRÁCTICA PROFESIONAL",
+              "fontFamily": "$font-body",
+              "fontSize": 12,
+              "fontWeight": "600",
+              "letterSpacing": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "a5MRCM",
+          "name": "Contenido principal",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 38,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "jdjcQ",
+              "name": "Presentación",
+              "width": 640,
+              "layout": "vertical",
+              "gap": 20,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "L6qRgl",
+                  "name": "Etiqueta de simulación",
+                  "fill": "#DDF4EF",
+                  "cornerRadius": 999,
+                  "padding": [
+                    8,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "t0APd",
+                      "name": "Texto de etiqueta",
+                      "fill": "$rumbo-petroleo",
+                      "content": "SIMULADOR DE ENTREVISTAS CON IA",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "LFDXW",
+                  "name": "Título principal",
+                  "fill": "$rumbo-oscuro",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Practica con claridad. Avanza con rumbo.",
+                  "lineHeight": 1.08,
+                  "fontFamily": "$font-heading",
+                  "fontSize": 52,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "k6Eo9m",
+                  "name": "Descripción",
+                  "fill": "$rumbo-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Ensaya una entrevista técnica por voz y recibe una retroalimentación concreta sobre tus respuestas, ritmo y presencia en cámara.",
+                  "lineHeight": 1.55,
+                  "fontFamily": "$font-body",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "W84qLg",
+                  "name": "Metadatos de sesión",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n3LpV",
+                      "name": "Dato Duración estimada",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JspSH",
+                          "name": "Valor Duración estimada",
+                          "fill": "$rumbo-petroleo",
+                          "content": "10 min",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 22,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "IcJgM",
+                          "name": "Etiqueta Duración estimada",
+                          "fill": "$rumbo-muted",
+                          "content": "Duración estimada",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "fVALS",
+                      "name": "Dato Preguntas técnicas",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "GQOba",
+                          "name": "Valor Preguntas técnicas",
+                          "fill": "$rumbo-petroleo",
+                          "content": "3",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 22,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "y8dFDA",
+                          "name": "Etiqueta Preguntas técnicas",
+                          "fill": "$rumbo-muted",
+                          "content": "Preguntas técnicas",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kGk5f",
+                      "name": "Dato Entrevistador virtual",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ICFk0",
+                          "name": "Valor Entrevistador virtual",
+                          "fill": "$rumbo-petroleo",
+                          "content": "IA",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 22,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Sawbb",
+                          "name": "Etiqueta Entrevistador virtual",
+                          "fill": "$rumbo-muted",
+                          "content": "Entrevistador virtual",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "C5J4Gx",
+              "name": "Selección de entrevista",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 24,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#1D5D6B18",
+                "offset": {
+                  "x": 0,
+                  "y": 10
+                },
+                "blur": 28
+              },
+              "layout": "vertical",
+              "gap": 22,
+              "padding": 30,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XRiN0",
+                  "name": "Título de selección",
+                  "fill": "$rumbo-oscuro",
+                  "content": "Elige tu práctica",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "YjgJn",
+                  "name": "Entrevista Backend Junior",
+                  "width": "fill_container",
+                  "fill": "#E9F4F2",
+                  "cornerRadius": 18,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 22,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "BVu4b",
+                      "name": "Rol de entrevista",
+                      "fill": "$rumbo-petroleo",
+                      "content": "Backend Developer Junior",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "mai5c",
+                      "name": "Descripción del rol",
+                      "fill": "$rumbo-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Fundamentos de APIs, HTTP y bases de datos.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "F0tM5",
+                      "name": "Estado seleccionado",
+                      "fill": "$rumbo-turquesa",
+                      "content": "✓ ENTREVISTA SELECCIONADA",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.4
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xKrY3",
+                  "name": "Botón preparar entrevista",
+                  "width": "fill_container",
+                  "height": 54,
+                  "fill": "$rumbo-petroleo",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aMdNL",
+                      "name": "Texto preparar entrevista",
+                      "fill": "#FFFFFF",
+                      "content": "Preparar entrevista  →",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "CI50j",
+                  "name": "Nota de privacidad",
+                  "fill": "$rumbo-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Tus datos se usan solo para generar feedback durante esta sesión.",
+                  "lineHeight": 1.45,
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Dpdx4",
+      "x": 920,
+      "y": 1020,
+      "name": "RUMBO · Preparación",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "$rumbo-blanco",
+      "layout": "vertical",
+      "gap": 28,
+      "padding": [
+        36,
+        64
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "d2uAe",
+          "name": "Encabezado",
+          "width": "fill_container",
+          "height": 52,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "c4tUq",
+              "name": "Marca RUMBO",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "TzgKq",
+                  "name": "Símbolo de marca",
+                  "width": 38,
+                  "height": 38,
+                  "fill": "$rumbo-petroleo",
+                  "cornerRadius": 12,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "v9N6r9",
+                      "name": "Inicial R",
+                      "fill": "#FFFFFF",
+                      "content": "R",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 22,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Jq517",
+                  "name": "Logotipo",
+                  "fill": "$rumbo-petroleo",
+                  "content": "RUMBO",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "c2TYJ",
+              "name": "Progreso",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "z8yqFQ",
+                  "name": "Paso actual",
+                  "fill": "$rumbo-turquesa",
+                  "content": "01",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "r7hA94",
+                  "name": "Texto de progreso",
+                  "fill": "$rumbo-muted",
+                  "content": "PREPARACIÓN",
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "f3PVwQ",
+          "name": "Contenido de preparación",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 32,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Zi8NO",
+              "name": "Introducción de preparación",
+              "width": 480,
+              "layout": "vertical",
+              "gap": 18,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "a3Fimu",
+                  "name": "Título de preparación",
+                  "fill": "$rumbo-oscuro",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Todo listo para empezar con confianza.",
+                  "lineHeight": 1.14,
+                  "fontFamily": "$font-heading",
+                  "fontSize": 40,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "L7MgBB",
+                  "name": "Descripción de preparación",
+                  "fill": "$rumbo-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Revisemos tu equipo. La cámara y el micrófono son necesarios; la iluminación solo es una recomendación.",
+                  "lineHeight": 1.55,
+                  "fontFamily": "$font-body",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "iVJ2C",
+                  "name": "Aviso de privacidad",
+                  "width": "fill_container",
+                  "fill": "#FFF5DC",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 7,
+                  "padding": 18,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JwBmf",
+                      "name": "Título de privacidad",
+                      "fill": "$rumbo-oscuro",
+                      "content": "Tu práctica, bajo tu control",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "d4P8Nu",
+                      "name": "Texto de privacidad",
+                      "fill": "$rumbo-oscuro",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Analizaremos audio y señales visuales observables para ofrecerte feedback. No inferimos emociones ni rasgos personales.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "KTTdQ",
+              "name": "Panel de verificación",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 24,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#1D5D6B18",
+                "offset": {
+                  "x": 0,
+                  "y": 10
+                },
+                "blur": 28
+              },
+              "layout": "vertical",
+              "gap": 16,
+              "padding": 30,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AGdK6",
+                  "name": "Título de verificación",
+                  "fill": "$rumbo-oscuro",
+                  "content": "Comprobación de dispositivos",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 23,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "VjZLB",
+                  "name": "Estado Cámara detectada",
+                  "width": "fill_container",
+                  "fill": "#F8FAF9",
+                  "cornerRadius": 14,
+                  "gap": 14,
+                  "padding": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "bYkys",
+                      "name": "Indicador Cámara detectada",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#36B5A0",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "I3GngL",
+                          "name": "Icono Cámara detectada",
+                          "fill": "#FFFFFF",
+                          "content": "✓",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Pe953",
+                      "name": "Detalle Cámara detectada",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "y0Ltb",
+                          "name": "Etiqueta Cámara detectada",
+                          "fill": "$rumbo-oscuro",
+                          "content": "Cámara detectada",
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "KZpJw",
+                          "name": "Ayuda Cámara detectada",
+                          "fill": "$rumbo-muted",
+                          "content": "Imagen activa y estable",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "rVlUK",
+                  "name": "Estado Rostro detectado",
+                  "width": "fill_container",
+                  "fill": "#F8FAF9",
+                  "cornerRadius": 14,
+                  "gap": 14,
+                  "padding": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "M4ejxe",
+                      "name": "Indicador Rostro detectado",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#36B5A0",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "RdZjE",
+                          "name": "Icono Rostro detectado",
+                          "fill": "#FFFFFF",
+                          "content": "✓",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tz7Bk",
+                      "name": "Detalle Rostro detectado",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "wTQkQ",
+                          "name": "Etiqueta Rostro detectado",
+                          "fill": "$rumbo-oscuro",
+                          "content": "Rostro detectado",
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "sU0jO",
+                          "name": "Ayuda Rostro detectado",
+                          "fill": "$rumbo-muted",
+                          "content": "Encuadre centrado",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GAD2Q",
+                  "name": "Estado Micrófono detectado",
+                  "width": "fill_container",
+                  "fill": "#F8FAF9",
+                  "cornerRadius": 14,
+                  "gap": 14,
+                  "padding": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jAsl8",
+                      "name": "Indicador Micrófono detectado",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#36B5A0",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qeMa9",
+                          "name": "Icono Micrófono detectado",
+                          "fill": "#FFFFFF",
+                          "content": "✓",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Tzube",
+                      "name": "Detalle Micrófono detectado",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "dIlL6",
+                          "name": "Etiqueta Micrófono detectado",
+                          "fill": "$rumbo-oscuro",
+                          "content": "Micrófono detectado",
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "w3F0ol",
+                          "name": "Ayuda Micrófono detectado",
+                          "fill": "$rumbo-muted",
+                          "content": "Volumen adecuado",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "S3xv1p",
+                  "name": "Estado Iluminación",
+                  "width": "fill_container",
+                  "fill": "#F8FAF9",
+                  "cornerRadius": 14,
+                  "gap": 14,
+                  "padding": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "QfLui",
+                      "name": "Indicador Iluminación",
+                      "width": 32,
+                      "height": 32,
+                      "fill": "#F5C563",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ff94K",
+                          "name": "Icono Iluminación",
+                          "fill": "#FFFFFF",
+                          "content": "!",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ABrHe",
+                      "name": "Detalle Iluminación",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pRnI2",
+                          "name": "Etiqueta Iluminación",
+                          "fill": "$rumbo-oscuro",
+                          "content": "Iluminación",
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Mf4T2",
+                          "name": "Ayuda Iluminación",
+                          "fill": "$rumbo-muted",
+                          "content": "Podría ser más uniforme",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pCImL",
+                  "name": "Botón comenzar entrevista",
+                  "width": "fill_container",
+                  "height": 54,
+                  "fill": "$rumbo-petroleo",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "y3Uygr",
+                      "name": "Texto comenzar entrevista",
+                      "fill": "#FFFFFF",
+                      "content": "Comenzar entrevista  →",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "G5KEka",
+      "x": 920,
+      "y": 2040,
+      "name": "RUMBO · Entrevista",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "$rumbo-blanco",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": [
+        36,
+        64
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "hPLNv",
+          "name": "Encabezado de entrevista",
+          "width": "fill_container",
+          "height": 48,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "vEr5p",
+              "name": "Marca RUMBO",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n8lPu",
+                  "name": "Símbolo de marca",
+                  "width": 36,
+                  "height": 36,
+                  "fill": "$rumbo-petroleo",
+                  "cornerRadius": 11,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gC44K",
+                      "name": "Inicial R",
+                      "fill": "#FFFFFF",
+                      "content": "R",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "rRIpG",
+                  "name": "Logotipo",
+                  "fill": "$rumbo-petroleo",
+                  "content": "RUMBO",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 21,
+                  "fontWeight": "700",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "g5sN9G",
+              "name": "Estado de sesión",
+              "fill": "#E1F5EF",
+              "cornerRadius": 999,
+              "gap": 8,
+              "padding": [
+                8,
+                13
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "Ru2Sp",
+                  "name": "Punto activo",
+                  "fill": "$rumbo-turquesa",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "mnlrX",
+                  "name": "Texto estado",
+                  "fill": "$rumbo-petroleo",
+                  "content": "SESIÓN EN CURSO",
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 0.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "vvwAC",
+          "name": "Área de entrevista",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 28,
+          "children": [
+            {
+              "type": "frame",
+              "id": "nXDhh",
+              "name": "Video del candidato",
+              "width": 790,
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "H6fHKz",
+                  "name": "Vista de cámara",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": 548,
+                  "fill": "$rumbo-petroleo",
+                  "cornerRadius": 24,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "aBqZP",
+                      "x": 270,
+                      "y": 94,
+                      "name": "Halo de cámara",
+                      "fill": "#36B5A033",
+                      "width": 260,
+                      "height": 260
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "M4SfR9",
+                      "x": 327,
+                      "y": 141,
+                      "name": "Silueta de usuario",
+                      "fill": "#F8FAF9",
+                      "width": 146,
+                      "height": 146
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "LtCeJ",
+                      "x": 268,
+                      "y": 263,
+                      "name": "Cuerpo de usuario",
+                      "fill": "#D9E9E8",
+                      "width": 264,
+                      "height": 224
+                    },
+                    {
+                      "type": "frame",
+                      "id": "J335OL",
+                      "x": 22,
+                      "y": 22,
+                      "name": "Etiqueta de cámara",
+                      "width": 151,
+                      "height": 34,
+                      "fill": "#FFFFFFE6",
+                      "cornerRadius": 999,
+                      "gap": 8,
+                      "padding": [
+                        8,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "nulg2",
+                          "name": "Punto de cámara",
+                          "fill": "$rumbo-turquesa",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "text",
+                          "id": "DfJ5N",
+                          "name": "Texto cámara",
+                          "fill": "$rumbo-petroleo",
+                          "content": "CÁMARA ACTIVA",
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.4
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "s8lytp",
+                      "x": 665,
+                      "y": 22,
+                      "name": "Temporizador",
+                      "width": 102,
+                      "height": 34,
+                      "fill": "#29333AE6",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "itLXI",
+                          "name": "Tiempo de entrevista",
+                          "fill": "#FFFFFF",
+                          "content": "03:24",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mNw2s",
+                  "name": "Actividad de audio",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 14,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#1D5D6B14",
+                    "offset": {
+                      "x": 0,
+                      "y": 3
+                    },
+                    "blur": 12
+                  },
+                  "gap": 14,
+                  "padding": [
+                    13,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "a7fdPi",
+                      "name": "Icono micrófono",
+                      "fill": "$rumbo-turquesa",
+                      "content": "●",
+                      "fontFamily": "$font-body",
+                      "fontSize": 19,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "vUZmY",
+                      "name": "Estado audio",
+                      "fill": "$rumbo-oscuro",
+                      "content": "Escuchando tu respuesta",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "t7Qed9",
+                      "name": "Nivel de audio",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "XZNxi",
+                          "name": "Barra de audio",
+                          "fill": "$rumbo-turquesa",
+                          "width": 4,
+                          "height": 8
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "fXibV",
+                          "name": "Barra de audio",
+                          "fill": "$rumbo-turquesa",
+                          "width": 4,
+                          "height": 16
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "GWBgm",
+                          "name": "Barra de audio",
+                          "fill": "$rumbo-turquesa",
+                          "width": 4,
+                          "height": 25
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "oQL46",
+                          "name": "Barra de audio",
+                          "fill": "$rumbo-turquesa",
+                          "width": 4,
+                          "height": 13
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "uwluE",
+                          "name": "Barra de audio",
+                          "fill": "$rumbo-turquesa",
+                          "width": 4,
+                          "height": 20
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "EYEmx",
+                          "name": "Barra de audio",
+                          "fill": "$rumbo-turquesa",
+                          "width": 4,
+                          "height": 9
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Z4Uo5",
+              "name": "Panel del entrevistador",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 24,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#1D5D6B18",
+                "offset": {
+                  "x": 0,
+                  "y": 10
+                },
+                "blur": 28
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 28,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "I6BW8",
+                  "name": "Identidad IA",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BGlro",
+                      "name": "Avatar IA",
+                      "width": 42,
+                      "height": 42,
+                      "fill": "$rumbo-amarillo",
+                      "cornerRadius": 14,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "d40vjP",
+                          "name": "Icono IA",
+                          "fill": "$rumbo-oscuro",
+                          "content": "✦",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 21,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "m9CXg",
+                      "name": "Detalle entrevistador",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "A5iKR",
+                          "name": "Nombre entrevistador",
+                          "fill": "$rumbo-oscuro",
+                          "content": "Rumbo IA",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 18,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wmd43",
+                          "name": "Rol entrevistador",
+                          "fill": "$rumbo-muted",
+                          "content": "Entrevistador virtual",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "M82Ujr",
+                  "name": "Contador de pregunta",
+                  "fill": "$rumbo-turquesa",
+                  "content": "PREGUNTA 1 DE 4",
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "600",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "PeoLR",
+                  "name": "Pregunta actual",
+                  "fill": "$rumbo-oscuro",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Cuéntame un poco sobre ti, tu formación y tu experiencia.",
+                  "lineHeight": 1.28,
+                  "fontFamily": "$font-heading",
+                  "fontSize": 29,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "udg4i",
+                  "name": "Sugerencia de respuesta",
+                  "width": "fill_container",
+                  "fill": "#E9F4F2",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 17,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I4p18",
+                      "name": "Título sugerencia",
+                      "fill": "$rumbo-petroleo",
+                      "content": "Tómate tu tiempo",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "yIKQd",
+                      "name": "Texto sugerencia",
+                      "fill": "$rumbo-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Puedes hablar de tu formación, proyectos relevantes y tecnologías que manejas.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "d4IOZ",
+                  "name": "Botón finalizar entrevista",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "#FFF5DC",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xkXh4",
+                      "name": "Texto finalizar entrevista",
+                      "fill": "#9B6C12",
+                      "content": "Finalizar entrevista",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "yAlDI",
+      "x": 920,
+      "y": 3060,
+      "name": "RUMBO · Resultados",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "$rumbo-blanco",
+      "layout": "vertical",
+      "gap": 22,
+      "padding": [
+        36,
+        64
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "ugFqd",
+          "name": "Encabezado de resultados",
+          "width": "fill_container",
+          "height": 52,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "pf82i",
+              "name": "Marca RUMBO",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "nS7kt",
+                  "name": "Símbolo de marca",
+                  "width": 38,
+                  "height": 38,
+                  "fill": "$rumbo-petroleo",
+                  "cornerRadius": 12,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "as1Gu",
+                      "name": "Inicial R",
+                      "fill": "#FFFFFF",
+                      "content": "R",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 22,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "v6W8A",
+                  "name": "Logotipo",
+                  "fill": "$rumbo-petroleo",
+                  "content": "RUMBO",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Z3FHdI",
+              "name": "Botón nueva práctica",
+              "fill": "#E9F4F2",
+              "cornerRadius": 999,
+              "padding": [
+                10,
+                16
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ixX9r",
+                  "name": "Texto nueva práctica",
+                  "fill": "$rumbo-petroleo",
+                  "content": "Nueva práctica",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Fq2Nz",
+          "name": "Resumen superior",
+          "width": "fill_container",
+          "justifyContent": "space_between",
+          "alignItems": "end",
+          "children": [
+            {
+              "type": "frame",
+              "id": "SG3nK",
+              "name": "Texto de resultados",
+              "layout": "vertical",
+              "gap": 5,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ulHDP",
+                  "name": "Título de resultados",
+                  "fill": "$rumbo-oscuro",
+                  "content": "Tu entrevista, en perspectiva.",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 35,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "z0hFyH",
+                  "name": "Subtítulo de resultados",
+                  "fill": "$rumbo-muted",
+                  "content": "Backend Developer Junior · 08:42 minutos",
+                  "fontFamily": "$font-body",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "USO6P",
+              "name": "Puntaje global",
+              "layout": "vertical",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "i4MAPS",
+                  "name": "Valor del puntaje",
+                  "fill": "$rumbo-petroleo",
+                  "content": "8.1",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 42,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "j90Ph0",
+                  "name": "Etiqueta puntaje",
+                  "fill": "$rumbo-muted",
+                  "content": "EVALUACIÓN TÉCNICA",
+                  "fontFamily": "$font-body",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 0.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BjWOd",
+          "name": "Contenido de resultados",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 20,
+          "children": [
+            {
+              "type": "frame",
+              "id": "H4Drme",
+              "name": "Métricas de comunicación",
+              "width": 370,
+              "layout": "vertical",
+              "gap": 15,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JgrGd",
+                  "name": "Título métricas",
+                  "fill": "$rumbo-oscuro",
+                  "content": "Comunicación",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "ZI0Ql",
+                  "name": "Métrica palabras por minuto",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#1D5D6B12",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 14
+                  },
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Y3cb5",
+                      "name": "Valor palabras por minuto",
+                      "fill": "#1D5D6B",
+                      "content": "132",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 25,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SFZC7",
+                      "name": "Etiqueta palabras por minuto",
+                      "fill": "$rumbo-muted",
+                      "content": "palabras por minuto",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OFbdY",
+                  "name": "Métrica muletillas detectadas",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#1D5D6B12",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 14
+                  },
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "u4NmJ",
+                      "name": "Valor muletillas detectadas",
+                      "fill": "#F5C563",
+                      "content": "8",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 25,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ffz9E",
+                      "name": "Etiqueta muletillas detectadas",
+                      "fill": "$rumbo-muted",
+                      "content": "muletillas detectadas",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iZ0EU",
+                  "name": "Métrica pausas largas",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#1D5D6B12",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 14
+                  },
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GR863",
+                      "name": "Valor pausas largas",
+                      "fill": "#36B5A0",
+                      "content": "3",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 25,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "D3ITo",
+                      "name": "Etiqueta pausas largas",
+                      "fill": "$rumbo-muted",
+                      "content": "pausas largas",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qvexB",
+                  "name": "Métrica rostro visible",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 16,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#1D5D6B12",
+                    "offset": {
+                      "x": 0,
+                      "y": 4
+                    },
+                    "blur": 14
+                  },
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wxQ5u",
+                      "name": "Valor rostro visible",
+                      "fill": "#1D5D6B",
+                      "content": "96%",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 25,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "l1YQl5",
+                      "name": "Etiqueta rostro visible",
+                      "fill": "$rumbo-muted",
+                      "content": "rostro visible",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JGfvC",
+              "name": "Síntesis y recomendaciones",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 15,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "hxj9n",
+                  "name": "Resumen de desempeño",
+                  "width": "fill_container",
+                  "fill": "$rumbo-petroleo",
+                  "cornerRadius": 22,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 22,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "c69lbP",
+                      "name": "Etiqueta resumen",
+                      "fill": "#BEE5DC",
+                      "content": "RESUMEN GENERAL",
+                      "fontFamily": "$font-body",
+                      "fontSize": 11,
+                      "fontWeight": "600",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "F90PxQ",
+                      "name": "Texto resumen",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Tus respuestas fueron claras y relevantes. Destacaste al explicar conceptos técnicos con ejemplos sencillos.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-heading",
+                      "fontSize": 21,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "N1QGOR",
+                  "name": "Recomendaciones",
+                  "width": "fill_container",
+                  "fill": "#FFF5DC",
+                  "cornerRadius": 22,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 21,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PYupQ",
+                      "name": "Título recomendaciones",
+                      "fill": "$rumbo-oscuro",
+                      "content": "Siguiente paso",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 19,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "znzuw",
+                      "name": "Recomendación",
+                      "gap": 9,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Kc8lX",
+                          "name": "Marca recomendación",
+                          "fill": "#9B6C12",
+                          "content": "→",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "gSYia",
+                          "name": "Texto recomendación",
+                          "fill": "$rumbo-oscuro",
+                          "textGrowth": "fixed-width",
+                          "width": 360,
+                          "content": "Incluye un ejemplo práctico al definir una API REST.",
+                          "lineHeight": 1.4,
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Nec9U",
+                      "name": "Recomendación",
+                      "gap": 9,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "b7GDOS",
+                          "name": "Marca recomendación",
+                          "fill": "#9B6C12",
+                          "content": "→",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "mNrNR",
+                          "name": "Texto recomendación",
+                          "fill": "$rumbo-oscuro",
+                          "textGrowth": "fixed-width",
+                          "width": 360,
+                          "content": "Reduce las muletillas con pausas breves y conscientes.",
+                          "lineHeight": 1.4,
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "y39UVd",
+                      "name": "Recomendación",
+                      "gap": 9,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "sME1p",
+                          "name": "Marca recomendación",
+                          "fill": "#9B6C12",
+                          "content": "→",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "bj0MI",
+                          "name": "Texto recomendación",
+                          "fill": "$rumbo-oscuro",
+                          "textGrowth": "fixed-width",
+                          "width": 360,
+                          "content": "Desarrolla un poco más tus respuestas sobre bases de datos.",
+                          "lineHeight": 1.4,
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "oXcsD",
+              "name": "Evaluación por pregunta",
+              "width": 365,
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "zwNWI",
+                  "name": "Título evaluación",
+                  "fill": "$rumbo-oscuro",
+                  "content": "Pregunta destacada",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "pYniQ",
+                  "name": "Tarjeta de evaluación",
+                  "width": "fill_container",
+                  "fill": "#E9F4F2",
+                  "cornerRadius": 22,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 22,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "v6vgoX",
+                      "name": "Pregunta evaluada",
+                      "fill": "$rumbo-petroleo",
+                      "content": "¿Qué es una API REST?",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "qTZla",
+                      "name": "Calificaciones",
+                      "gap": 14,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "mLdd7",
+                          "name": "Calificación Claridad",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "U78VV",
+                              "name": "Valor Claridad",
+                              "fill": "$rumbo-oscuro",
+                              "content": "8/10",
+                              "fontFamily": "$font-heading",
+                              "fontSize": 18,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "lL7lQ",
+                              "name": "Etiqueta Claridad",
+                              "fill": "$rumbo-muted",
+                              "content": "Claridad",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "XPDKp",
+                          "name": "Calificación Precisión",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "z5USV",
+                              "name": "Valor Precisión",
+                              "fill": "$rumbo-oscuro",
+                              "content": "7/10",
+                              "fontFamily": "$font-heading",
+                              "fontSize": 18,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "xPOPW",
+                              "name": "Etiqueta Precisión",
+                              "fill": "$rumbo-muted",
+                              "content": "Precisión",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "s9BoZ",
+                          "name": "Calificación Relevancia",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Q47X1v",
+                              "name": "Valor Relevancia",
+                              "fill": "$rumbo-oscuro",
+                              "content": "9/10",
+                              "fontFamily": "$font-heading",
+                              "fontSize": 18,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "YlihK",
+                              "name": "Etiqueta Relevancia",
+                              "fill": "$rumbo-muted",
+                              "content": "Relevancia",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "sj5k3",
+                      "name": "Fortaleza",
+                      "fill": "$rumbo-oscuro",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "✓ Relacionaste correctamente REST con HTTP y endpoints.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CNwE5",
+                      "name": "Mejora",
+                      "fill": "$rumbo-oscuro",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "→ Podrías explicar con más detalle request y response.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Pglv9",
+                  "name": "Botón ver detalle",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$rumbo-petroleo",
+                  "cornerRadius": 14,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KCItf",
+                      "name": "Texto ver detalle",
+                      "fill": "#FFFFFF",
+                      "content": "Ver detalle por pregunta",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "rumbo-petroleo": {
+      "type": "color",
+      "value": "#1D5D6B"
+    },
+    "rumbo-turquesa": {
+      "type": "color",
+      "value": "#36B5A0"
+    },
+    "rumbo-amarillo": {
+      "type": "color",
+      "value": "#F5C563"
+    },
+    "rumbo-blanco": {
+      "type": "color",
+      "value": "#F8FAF9"
+    },
+    "rumbo-oscuro": {
+      "type": "color",
+      "value": "#29333A"
+    },
+    "rumbo-muted": {
+      "type": "color",
+      "value": "#68757B"
+    },
+    "rumbo-line": {
+      "type": "color",
+      "value": "#DDE6E5"
+    },
+    "font-heading": {
+      "type": "string",
+      "value": "Poppins"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "Inter"
+    }
+  },
+  "fileToken": "b40a95fb-2a15-40fb-b3df-60256656422c"
+}

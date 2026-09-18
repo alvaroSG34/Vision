@@ -50,11 +50,30 @@ button, textarea { font: inherit; }
 .status-card h3 { margin: 0 0 8px; font-size: 16px; }
 .status-card p { margin: 0; color: var(--muted); font-size: 14px; }
 .ok { color: var(--success); font-weight: 800; }
+.status-wait { color: #667085; font-size: 13px; font-weight: 750; }
+.status-error { color: #b42318; font-size: 13px; font-weight: 800; }
+.button:disabled { cursor: not-allowed; opacity: .52; transform: none; }
 .notice { max-width: 760px; margin: 18px auto; padding: 16px 18px; color: #475467; background: #f0f4ff; border-radius: 12px; font-size: 14px; line-height: 1.5; }
 .actions { display: flex; justify-content: center; gap: 12px; margin-top: 26px; }
+.setup-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: 18px; max-width: 960px; margin: 0 auto; }
+.camera-card { padding: 22px; }
+.camera-card h2 { margin: 5px 0 0; font-size: 20px; }
+.camera-preview { position: relative; min-height: 340px; overflow: hidden; margin: 20px 0; border-radius: 12px; background: #171a30; }
+.camera-preview video { display: block; width: 100%; min-height: 340px; object-fit: cover; transform: scaleX(-1); }
+.camera-placeholder { position: absolute; inset: 0; display: grid; place-content: center; gap: 12px; color: #d9dcff; text-align: center; }
+.camera-placeholder span { font-size: 46px; }
+.camera-placeholder p { margin: 0; }
+.checks-column { display: grid; gap: 12px; align-content: start; }
+.audio-meter { height: 7px; overflow: hidden; margin-top: 15px; background: #eaecf0; border-radius: 99px; }
+.audio-meter span { display: block; height: 100%; min-width: 2px; background: var(--success); border-radius: inherit; transition: width .1s linear; }
+.interview-meter { margin: 8px 0 18px; }
+.device-error { margin: 14px 0 0; color: #b42318; font-size: 14px; line-height: 1.45; }
 .interview-layout { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(300px, .7fr); gap: 22px; }
-.video-panel { min-height: 420px; padding: 26px; color: white; background: radial-gradient(circle at 30% 20%, #5262b8, #202545 60%, #171a30); border-radius: 18px; }
-.video-top { display: flex; justify-content: space-between; color: #d9dcff; font-size: 14px; }
+.video-panel { position: relative; min-height: 420px; overflow: hidden; padding: 26px; color: white; background: radial-gradient(circle at 30% 20%, #5262b8, #202545 60%, #171a30); border-radius: 18px; }
+.interview-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+.video-top { position: relative; z-index: 1; display: flex; justify-content: space-between; color: #f8f9ff; font-size: 14px; text-shadow: 0 1px 4px rgba(0,0,0,.5); }
+.video-bottom { position: absolute; right: 26px; bottom: 24px; left: 26px; z-index: 1; display: flex; justify-content: space-between; align-items: center; color: #f8f9ff; font-size: 14px; text-shadow: 0 1px 4px rgba(0,0,0,.5); }
+.live-audio { display: inline-flex; align-items: center; gap: 7px; }
 .avatar { display: grid; place-items: center; width: 118px; height: 118px; margin: 106px auto 20px; border: 4px solid rgba(255,255,255,.23); border-radius: 50%; background: linear-gradient(135deg, #e6ad8a, #7d5a78); font-size: 42px; }
 .video-panel p { margin: 0; text-align: center; color: #d9dcff; }
 .side-panel { padding: 25px; }
@@ -81,7 +100,7 @@ textarea { width: 100%; min-height: 130px; padding: 13px; border: 1px solid var(
 @media (max-width: 720px) {
   .shell { padding: 18px; }
   .topbar { margin-bottom: 36px; }
-  .grid, .interview-layout, .results-grid { grid-template-columns: 1fr; }
+  .grid, .setup-layout, .interview-layout, .results-grid { grid-template-columns: 1fr; }
   .video-panel { min-height: 300px; }
   .avatar { margin-top: 54px; }
   .meta { flex-direction: column; gap: 7px; }

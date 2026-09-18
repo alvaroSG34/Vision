@@ -2,11 +2,13 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import type { FaceLandmarker } from "@mediapipe/tasks-vision";
 
 import { AppHeader } from "@/components/AppHeader";
 import { useInterviewStore } from "@/store/interviewStore";
 import type { FillerWordResult, PauseMetrics } from "@/types/audio";
 import type { InterviewAnswer, TranscriptionProvider } from "@/types/interview";
+import type { VisionMetrics } from "@/types/vision";
 
 type ResponseState = "ready" | "recording" | "transcribing" | "error";
 type ProviderStatus = TranscriptionProvider | "loading";
@@ -23,12 +25,46 @@ interface PauseTracker {
   pauses: number[];
 }
 
+interface FaceTracker {
+  totalFrames: number;
+  framesWithFace: number;
+  centeredFrames: number;
+  forwardFrames: number;
+  faceLostEvents: number;
+  wasFaceVisible: boolean;
+}
+
 const EMPTY_PAUSE_METRICS: PauseMetrics = {
   totalPauses: 0,
   longPauses: 0,
   averagePauseMs: 0,
   longestPauseMs: 0,
 };
+
+const EMPTY_FACE_TRACKER: FaceTracker = {
+  totalFrames: 0,
+  framesWithFace: 0,
+  centeredFrames: 0,
+  forwardFrames: 0,
+  faceLostEvents: 0,
+  wasFaceVisible: false,
+};
+
+function buildVisionMetrics(tracker: FaceTracker): VisionMetrics {
+  const faceFrames = tracker.framesWithFace;
+  return {
+    faceVisiblePercentage: tracker.totalFrames
+      ? Math.round((faceFrames / tracker.totalFrames) * 100)
+      : 0,
+    centeredPercentage: faceFrames
+      ? Math.round((tracker.centeredFrames / faceFrames) * 100)
+      : 0,
+    forwardPercentage: faceFrames
+      ? Math.round((tracker.forwardFrames / faceFrames) * 100)
+      : 0,
+    faceLostEvents: tracker.faceLostEvents,
+  };
+}
 
 function countFillerWords(text: string): FillerWordResult {
   const normalizedText = text
@@ -66,6 +102,10 @@ function getSupportedRecorderMimeType() {
     .find((mimeType) => MediaRecorder.isTypeSupported(mimeType));
 }
 
+function getCurrentTimestamp() {
+  return Date.now();
+}
+
 export default function InterviewPage() {
   const router = useRouter();
   const config = useInterviewStore((state) => state.config);
@@ -75,6 +115,7 @@ export default function InterviewPage() {
   const addAnswer = useInterviewStore((state) => state.addAnswer);
   const finishInterview = useInterviewStore((state) => state.finishInterview);
   const clearMediaStream = useInterviewStore((state) => state.clearMediaStream);
+  const setVisionMetrics = useInterviewStore((state) => state.setVisionMetrics);
   const videoRef = useRef<HTMLVideoElement>(null);
   const animationFrameRef = useRef<number | null>(null);
   const streamCleanupTimerRef = useRef<number | null>(null);
@@ -92,12 +133,17 @@ export default function InterviewPage() {
   const isResponseRecordingRef = useRef(false);
   const pauseTrackerRef = useRef<PauseTracker>({ hasSpoken: false, pauses: [] });
   const completedPauseMetricsRef = useRef<PauseMetrics>(EMPTY_PAUSE_METRICS);
+  const faceAnimationFrameRef = useRef<number | null>(null);
+  const faceDetectionRunRef = useRef(0);
+  const faceTrackerRef = useRef<FaceTracker>(EMPTY_FACE_TRACKER);
   const [seconds, setSeconds] = useState(0);
   const [audioLevel, setAudioLevel] = useState(0);
   const [provider, setProvider] = useState<ProviderStatus>("loading");
   const [responseState, setResponseState] = useState<ResponseState>("ready");
   const [liveTranscript, setLiveTranscript] = useState("");
   const [responseError, setResponseError] = useState("");
+  const [faceDetected, setFaceDetected] = useState(false);
+  const [faceLookingForward, setFaceLookingForward] = useState(false);
 
   const questions = useMemo(
     () => [
@@ -209,6 +255,108 @@ export default function InterviewPage() {
     };
   }, [clearMediaStream, mediaStream, router]);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!mediaStream || !video) return;
+    const activeVideo = video;
+
+    const runId = faceDetectionRunRef.current + 1;
+    faceDetectionRunRef.current = runId;
+    faceTrackerRef.current = { ...EMPTY_FACE_TRACKER };
+    setFaceDetected(false);
+    setFaceLookingForward(false);
+    let faceLandmarker: FaceLandmarker | null = null;
+    let lastSampleTimestamp = 0;
+
+    async function startFaceAnalysis() {
+      try {
+        const { FaceLandmarker, FilesetResolver } = await import("@mediapipe/tasks-vision");
+        const vision = await FilesetResolver.forVisionTasks(
+          "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.0.1/wasm",
+        );
+        const landmarker = await FaceLandmarker.createFromOptions(vision, {
+          baseOptions: {
+            modelAssetPath:
+              "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+          },
+          runningMode: "VIDEO",
+          numFaces: 1,
+          minFaceDetectionConfidence: 0.5,
+          minFacePresenceConfidence: 0.5,
+          minTrackingConfidence: 0.5,
+        });
+
+        if (runId !== faceDetectionRunRef.current) {
+          landmarker.close();
+          return;
+        }
+        faceLandmarker = landmarker;
+
+        const analyzeFrame = (timestamp: number) => {
+          if (runId !== faceDetectionRunRef.current || !faceLandmarker) return;
+
+          if (
+            activeVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA &&
+            timestamp - lastSampleTimestamp >= 200
+          ) {
+            lastSampleTimestamp = timestamp;
+            const tracker = faceTrackerRef.current;
+            const result = faceLandmarker.detectForVideo(activeVideo, timestamp);
+            const landmarks = result.faceLandmarks[0];
+            tracker.totalFrames += 1;
+
+            if (!landmarks) {
+              if (tracker.wasFaceVisible) tracker.faceLostEvents += 1;
+              tracker.wasFaceVisible = false;
+              setFaceDetected(false);
+              setFaceLookingForward(false);
+            } else {
+              const xs = landmarks.map((landmark) => landmark.x);
+              const ys = landmarks.map((landmark) => landmark.y);
+              const minX = Math.min(...xs);
+              const maxX = Math.max(...xs);
+              const minY = Math.min(...ys);
+              const maxY = Math.max(...ys);
+              const centerX = (minX + maxX) / 2;
+              const centerY = (minY + maxY) / 2;
+              const faceWidth = maxX - minX;
+              const centered =
+                centerX >= 0.32 && centerX <= 0.68 &&
+                centerY >= 0.22 && centerY <= 0.78 &&
+                faceWidth >= 0.12;
+              const nose = landmarks[1];
+              const forward = Boolean(nose) && faceWidth > 0 &&
+                Math.abs(nose.x - centerX) / faceWidth <= 0.12;
+
+              tracker.framesWithFace += 1;
+              if (centered) tracker.centeredFrames += 1;
+              if (forward) tracker.forwardFrames += 1;
+              tracker.wasFaceVisible = true;
+              setFaceDetected(true);
+              setFaceLookingForward(forward);
+            }
+          }
+
+          faceAnimationFrameRef.current = window.requestAnimationFrame(analyzeFrame);
+        };
+        faceAnimationFrameRef.current = window.requestAnimationFrame(analyzeFrame);
+      } catch {
+        if (runId === faceDetectionRunRef.current) setFaceDetected(false);
+      }
+    }
+
+    void startFaceAnalysis();
+
+    return () => {
+      faceDetectionRunRef.current += 1;
+      if (faceAnimationFrameRef.current !== null) {
+        window.cancelAnimationFrame(faceAnimationFrameRef.current);
+        faceAnimationFrameRef.current = null;
+      }
+      faceLandmarker?.close();
+    };
+  }, [mediaStream]);
+
   useEffect(() => () => {
     isFinishingRef.current = true;
     isResponseRecordingRef.current = false;
@@ -225,7 +373,7 @@ export default function InterviewPage() {
     const normalizedText = text.trim();
     if (!current || !normalizedText || isFinishingRef.current) return;
 
-    const finishedAt = Date.now();
+    const finishedAt = getCurrentTimestamp();
     const recordingDurationMs = Math.max(1, finishedAt - recordingStartedAtRef.current);
     const wordCount = normalizedText.split(/\s+/).filter(Boolean).length;
     const wordsPerMinute = Math.round(wordCount / (recordingDurationMs / 60000));
@@ -251,8 +399,7 @@ export default function InterviewPage() {
     addAnswer(result);
 
     if (isLast) {
-      finishInterview();
-      router.push("/results");
+      completeInterview();
     }
   }
 
@@ -421,7 +568,7 @@ export default function InterviewPage() {
   function startResponse() {
     if (!mediaStream || provider === "loading") return;
     isFinishingRef.current = false;
-    recordingStartedAtRef.current = Date.now();
+    recordingStartedAtRef.current = getCurrentTimestamp();
     fallbackTranscriptRef.current = "";
     fallbackInterimRef.current = "";
     userStoppedRecognitionRef.current = false;
@@ -469,6 +616,11 @@ export default function InterviewPage() {
     transcriptionAbortRef.current?.abort();
     recognitionRef.current?.abort();
     if (recorderRef.current?.state === "recording") recorderRef.current.stop();
+    completeInterview();
+  }
+
+  function completeInterview() {
+    setVisionMetrics(buildVisionMetrics(faceTrackerRef.current));
     finishInterview();
     router.push("/results");
   }
@@ -488,9 +640,15 @@ export default function InterviewPage() {
               <span>● Cámara en vivo</span>
               <span>◷ {String(Math.floor(seconds / 60)).padStart(2, "0")}:{String(seconds % 60).padStart(2, "0")}</span>
             </div>
+            <div className={`camera-attention ${faceDetected ? (faceLookingForward ? "camera-attention-ok" : "camera-attention-warning") : "camera-attention-error"}`}>
+              <span className="camera-attention-dot" />
+              {faceDetected
+                ? (faceLookingForward ? "Mirando a cámara" : "Alinea tu mirada con la cámara")
+                : "No se detecta tu rostro"}
+            </div>
             <div className="video-bottom">
               <span>Vista del candidato</span>
-              <span className="live-audio"><i className="dot" /> Micrófono activo</span>
+              <span className="live-audio"><i className="dot" /> {faceDetected ? "Rostro detectado" : "Buscando rostro"}</span>
             </div>
           </section>
 

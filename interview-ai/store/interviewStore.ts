@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 import { defaultInterview } from "@/config/interviews";
 import type { InterviewAnswer, InterviewConfig, InterviewStatus } from "@/types/interview";
+import type { VisionMetrics } from "@/types/vision";
 
 function stopMediaStream(stream?: MediaStream) {
   stream?.getTracks().forEach((track) => track.stop());
@@ -15,11 +16,13 @@ interface InterviewStore {
   startedAt?: number;
   finishedAt?: number;
   mediaStream?: MediaStream;
+  visionMetrics?: VisionMetrics;
   selectInterview: (config: InterviewConfig) => void;
   setStatus: (status: InterviewStatus) => void;
   beginInterview: () => void;
   setMediaStream: (stream: MediaStream) => void;
   clearMediaStream: () => void;
+  setVisionMetrics: (metrics: VisionMetrics) => void;
   addAnswer: (answer: InterviewAnswer) => void;
   finishInterview: () => void;
   reset: () => void;
@@ -33,7 +36,7 @@ export const useInterviewStore = create<InterviewStore>((set) => ({
   selectInterview: (config) =>
     set((state) => {
       stopMediaStream(state.mediaStream);
-      return { config, status: "SETUP", currentQuestionIndex: 0, answers: [], mediaStream: undefined };
+      return { config, status: "SETUP", currentQuestionIndex: 0, answers: [], mediaStream: undefined, visionMetrics: undefined };
     }),
   setStatus: (status) => set({ status }),
   beginInterview: () =>
@@ -43,6 +46,7 @@ export const useInterviewStore = create<InterviewStore>((set) => ({
       answers: [],
       startedAt: Date.now(),
       finishedAt: undefined,
+      visionMetrics: undefined,
     }),
   setMediaStream: (mediaStream) => set({ mediaStream }),
   clearMediaStream: () =>
@@ -50,6 +54,7 @@ export const useInterviewStore = create<InterviewStore>((set) => ({
       stopMediaStream(state.mediaStream);
       return { mediaStream: undefined };
     }),
+  setVisionMetrics: (visionMetrics) => set({ visionMetrics }),
   addAnswer: (answer) =>
     set((state) => ({
       answers: [...state.answers, answer],
@@ -68,6 +73,7 @@ export const useInterviewStore = create<InterviewStore>((set) => ({
         startedAt: undefined,
         finishedAt: undefined,
         mediaStream: undefined,
+        visionMetrics: undefined,
       };
     }),
 }));

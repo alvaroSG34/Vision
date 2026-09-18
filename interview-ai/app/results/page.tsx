@@ -12,6 +12,7 @@ export default function ResultsPage() {
   const answers = useInterviewStore((state) => state.answers);
   const startedAt = useInterviewStore((state) => state.startedAt);
   const finishedAt = useInterviewStore((state) => state.finishedAt);
+  const visionMetrics = useInterviewStore((state) => state.visionMetrics);
   const reset = useInterviewStore((state) => state.reset);
 
   const duration = startedAt && finishedAt
@@ -53,6 +54,21 @@ export default function ResultsPage() {
           <p className="lead">
             Completaste {answers.length} de {config.technicalQuestions.length + 1} preguntas. El ritmo, las muletillas y las pausas se calculan a partir de datos observables de la sesión.
           </p>
+        </section>
+
+        <section className="section card">
+          <h2>Video y encuadre</h2>
+          {visionMetrics ? (
+            <div className="vision-results">
+              <div><span>Rostro visible</span><strong>{visionMetrics.faceVisiblePercentage}%</strong></div>
+              <div><span>Encuadre centrado</span><strong>{visionMetrics.centeredPercentage}%</strong></div>
+              <div><span>Orientación frontal aproximada</span><strong>{visionMetrics.forwardPercentage}%</strong></div>
+              <div><span>Pérdidas de rostro</span><strong>{visionMetrics.faceLostEvents}</strong></div>
+            </div>
+          ) : (
+            <p className="lead">No se registraron métricas visuales durante esta sesión.</p>
+          )}
+          <p className="small">Estas métricas describen visibilidad, encuadre y orientación aproximada; no infieren emociones ni estados mentales.</p>
         </section>
 
         <section className="section card">

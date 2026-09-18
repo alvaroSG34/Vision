@@ -29,14 +29,19 @@ export interface AnswerEvaluation {
   improvements: string[];
 }
 
+export type TranscriptionProvider = "openai" | "web-speech";
+
 export interface InterviewAnswer {
   questionId: string;
   question: string;
   answer: string;
   startedAt: number;
   finishedAt: number;
+  recordingDurationMs: number;
+  transcriptionProvider: TranscriptionProvider;
   wordsPerMinute: number;
-  fillerCount: number;
-  longPauseCount: number;
-  evaluation: AnswerEvaluation;
+  fillerWords: FillerWordResult;
+  pauseMetrics: PauseMetrics;
+  evaluation?: AnswerEvaluation;
 }
+import type { FillerWordResult, PauseMetrics } from "@/types/audio";

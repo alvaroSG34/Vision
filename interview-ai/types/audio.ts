@@ -12,3 +12,13 @@ export interface PauseMetrics {
   averagePauseMs: number;
   longestPauseMs: number;
 }
+
+export interface FillerWordItem {
+  phrase: string;
+  count: number;
+}
+
+export interface FillerWordResult {
+  total: number;
+  items: FillerWordItem[];
+}

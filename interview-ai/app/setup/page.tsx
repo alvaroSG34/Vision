@@ -3,12 +3,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { FaceLandmarker } from "@mediapipe/tasks-vision";
+import type { TranscriptionProvider } from "@/types/interview";
 
 import { AppHeader } from "@/components/AppHeader";
 import { useInterviewStore } from "@/store/interviewStore";
 
 type CheckState = "idle" | "checking" | "ready" | "error";
 type LightingState = "idle" | "checking" | "low" | "ok" | "high";
+type ProviderStatus = TranscriptionProvider | "loading";
 
 function getDeviceErrorMessage(error: unknown) {
   if (!(error instanceof DOMException)) {
@@ -56,6 +58,8 @@ export default function SetupPage() {
   const [brightness, setBrightness] = useState(0);
   const [error, setError] = useState("");
   const [faceError, setFaceError] = useState("");
+  const [transcriptionProvider, setTranscriptionProvider] = useState<ProviderStatus>("loading");
+  const [consentAccepted, setConsentAccepted] = useState(false);
 
   const releaseFaceLandmarker = useCallback(() => {
     faceDetectionRunRef.current += 1;
@@ -91,6 +95,26 @@ export default function SetupPage() {
   }, [releaseFaceLandmarker, releaseLightingAnalysis]);
 
   useEffect(() => releaseDevices, [releaseDevices]);
+
+  useEffect(() => {
+    let active = true;
+
+    void fetch("/api/transcription-status")
+      .then(async (response) => {
+        if (!response.ok) throw new Error("Provider status unavailable");
+        return response.json() as Promise<{ provider: TranscriptionProvider }>;
+      })
+      .then(({ provider }) => {
+        if (active) setTranscriptionProvider(provider);
+      })
+      .catch(() => {
+        if (active) setTranscriptionProvider("web-speech");
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
 
   async function startFaceDetection() {
     const video = videoRef.current;
@@ -345,10 +369,27 @@ export default function SetupPage() {
           </div>
         </section>
 
-        <p className="notice">La cámara y el micrófono se usan únicamente durante esta sesión de práctica. No se guardan grabaciones en esta fase.</p>
+        <label className="consent-card card">
+          <input
+            type="checkbox"
+            checked={consentAccepted}
+            onChange={(event) => setConsentAccepted(event.target.checked)}
+          />
+          <span>
+            <strong>Consentimiento para transcripción</strong>
+            <small>
+              {transcriptionProvider === "openai"
+                ? "Cada respuesta de audio se enviará temporalmente a OpenAI para convertirla a texto. El audio no se guardará en la aplicación."
+                : transcriptionProvider === "web-speech"
+                  ? "El reconocimiento de voz se procesará mediante las funciones de tu navegador. No se enviarán grabaciones a la aplicación."
+                  : "Comprobando el proveedor de transcripción disponible…"}
+            </small>
+          </span>
+        </label>
+        <p className="notice">La cámara y el micrófono se usan únicamente durante esta sesión de práctica. No se guardan grabaciones de video.</p>
         <div className="actions">
           <button className="button button-secondary" onClick={() => router.push("/")}>Volver</button>
-          <button className="button button-primary" onClick={start} disabled={!devicesReady}>Comenzar entrevista</button>
+          <button className="button button-primary" onClick={start} disabled={!devicesReady || !consentAccepted || transcriptionProvider === "loading"}>Comenzar entrevista</button>
         </div>
       </div>
     </main>

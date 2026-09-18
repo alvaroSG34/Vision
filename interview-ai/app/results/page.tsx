@@ -21,8 +21,8 @@ export default function ResultsPage() {
     const count = answers.length || 1;
     return {
       wpm: Math.round(answers.reduce((sum, item) => sum + item.wordsPerMinute, 0) / count),
-      fillers: answers.reduce((sum, item) => sum + item.fillerCount, 0),
-      pauses: answers.reduce((sum, item) => sum + item.longPauseCount, 0),
+      fillers: answers.reduce((sum, item) => sum + item.fillerWords.total, 0),
+      longPauses: answers.reduce((sum, item) => sum + item.pauseMetrics.longPauses, 0),
     };
   }, [answers]);
 
@@ -38,20 +38,20 @@ export default function ResultsPage() {
         <section className="page-head">
           <span className="eyebrow">Entrevista finalizada</span>
           <h1 className="page-title">Tu resumen de práctica</h1>
-          <p className="lead">{config.title} · Esta información es simulada durante la fase visual del MVP.</p>
+          <p className="lead">{config.title} · Respuestas transcritas durante la sesión de práctica.</p>
         </section>
 
         <section className="results-grid">
           <article className="metric card"><span>Duración</span><strong>{duration} min</strong></article>
           <article className="metric card"><span>Ritmo promedio</span><strong>{totals.wpm || "—"} ppm</strong></article>
-          <article className="metric card"><span>Muletillas</span><strong>{totals.fillers}</strong></article>
-          <article className="metric card"><span>Rostro visible</span><strong>96%</strong></article>
+          <article className="metric card"><span>Muletillas</span><strong>{totals.fillers}</strong><small>Detectadas en transcripción</small></article>
+          <article className="metric card"><span>Pausas largas</span><strong>{totals.longPauses}</strong><small>2 segundos o más</small></article>
         </section>
 
         <section className="section card">
           <h2>Resumen general</h2>
           <p className="lead">
-            Completaste {answers.length} de {config.technicalQuestions.length + 1} preguntas. La siguiente fase reemplazará estas métricas simuladas por datos reales de audio, video y evaluación técnica.
+            Completaste {answers.length} de {config.technicalQuestions.length + 1} preguntas. El ritmo, las muletillas y las pausas se calculan a partir de datos observables de la sesión.
           </p>
         </section>
 
@@ -72,7 +72,13 @@ export default function ResultsPage() {
             <article className="answer-card" key={item.questionId}>
               <h3>{item.question}</h3>
               <p>{item.answer}</p>
-              <span className="score">Claridad: {item.evaluation.clarity}/10 · Relevancia: {item.evaluation.relevance}/10</span>
+              <span className="score">
+                {item.wordsPerMinute} ppm · {Math.max(1, Math.round(item.recordingDurationMs / 1000))} s · {item.transcriptionProvider === "openai" ? "OpenAI" : "Navegador"}
+              </span>
+              <p className="small">
+                Muletillas: {item.fillerWords.total} · Pausas: {item.pauseMetrics.totalPauses} · Pausas largas: {item.pauseMetrics.longPauses}
+              </p>
+              {item.evaluation && <p className="small">Claridad: {item.evaluation.clarity}/10 · Relevancia: {item.evaluation.relevance}/10</p>}
             </article>
           ))}
         </section>
